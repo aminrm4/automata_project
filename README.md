@@ -105,8 +105,8 @@ make
 
 | GitHub | Name | Student ID |
 |:---:|:---:|:---:|
-| <a href="https://github.com/aminrm4"><img src="https://github.com/aminrm4.png" width="70" style="border-radius:50%"/><br/>@aminrm4</a> | Amin 💻 | ۴۰۳۱۲۳۵۸۰۱۳ |
-| <a href="https://github.com/AbolfazlAsali"><img src="https://github.com/AbolfazlAsali.png" width="70" style="border-radius:50%"/><br/>@AbolfazlAsali</a> | Abolfazl Asali 🧩 | ۴۰۳۱۲۳۵۸۰۳۰ |
+| <a href="https://github.com/aminrm4"><img src="https://github.com/aminrm4.png" width="70" style="border-radius:50%"/><br/>@aminrm4</a> | Amin 💻 | 40312358013 |
+| <a href="https://github.com/AbolfazlAsali"><img src="https://github.com/AbolfazlAsali.png" width="70" style="border-radius:50%"/><br/>@AbolfazlAsali</a> | Abolfazl Asali 🧩 | 40312358030 |
 
 </div>
 
