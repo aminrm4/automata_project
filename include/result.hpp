@@ -1,10 +1,3 @@
 #pragma once
-using namespace std;
-class result
-{
-private:
-    /* data */
-public:
-  
-};
 
+enum class result { accepted, rejected, time_out };
