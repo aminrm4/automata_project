@@ -19,6 +19,8 @@ int step_counter=0;
 dynamic_tape tape;
 transition_table table;
 
+step_info build_step_info() const;
+
 
     public:
 void set_start_state(const string & input);
