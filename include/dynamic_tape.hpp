@@ -15,7 +15,7 @@ int print_start=0;
     void ensure_exists(int index);
     void update_bounds();
 
-    friend class TuringMachine;
+    friend class turing_machine;
 
 
 public:
