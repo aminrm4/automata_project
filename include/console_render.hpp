@@ -7,6 +7,7 @@
 #include <ftxui/component/loop.hpp>
 #include <ftxui/component/screen_interactive.hpp>
 
+#include <bits/stdc++.h>
 class console_render
 {
 public:
@@ -27,7 +28,6 @@ public:
     bool should_quit() const { return quit_requested; }
 
 private:
-   
     ftxui::Component buildComponent();
 
     run_mode mode = run_mode::Step;
@@ -39,6 +39,7 @@ private:
     bool has_final_result = false;
 
     step_info currnet_info;
+    std::vector<int> head_history;
 
     ftxui::ScreenInteractive screen;
     ftxui::Component component;
