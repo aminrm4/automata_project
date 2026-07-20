@@ -82,7 +82,7 @@ namespace
         return vbox(std::move(content)) | border;
     }
 
-} // namespace
+} 
 
 console_render ::console_render() : console_render(std::getenv("AUTOMATA_BATCH") != nullptr) {}
 
