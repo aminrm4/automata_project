@@ -1,0 +1,20 @@
+{
+  "start_state": "q0",
+  "accept_states": ["qacc"],
+  "reject_states": ["qrej"],
+  "max_steps": 500,
+  "initial_tape": "10",
+  "transitions": [
+    { "from": "q0", "read": "0", "to": "q1", "write": "X", "dir": "R" },
+    { "from": "q0", "read": "Y", "to": "q0", "write": "Y", "dir": "R" },
+    { "from": "q0", "read": "_", "to": "qacc", "write": "_", "dir": "R" },
+    { "from": "q0", "read": "1", "to": "qrej", "write": "_", "dir": "R" },
+    { "from": "q1", "read": "0", "to": "q1", "write": "0", "dir": "R" },
+    { "from": "q1", "read": "Y", "to": "q1", "write": "Y", "dir": "R" },
+    { "from": "q1", "read": "1", "to": "q2", "write": "Y", "dir": "L" },
+    { "from": "q1", "read": "_", "to": "qrej", "write": "_", "dir": "R" },
+    { "from": "q2", "read": "0", "to": "q2", "write": "0", "dir": "L" },
+    { "from": "q2", "read": "Y", "to": "q2", "write": "Y", "dir": "L" },
+    { "from": "q2", "read": "X", "to": "q0", "write": "X", "dir": "R" }
+  ]
+}
