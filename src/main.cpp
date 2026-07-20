@@ -24,7 +24,7 @@ namespace
 
     void print_usage(char *program)
     {
-        cerr << program << ".json run for test" << endl;
+        cerr << program << "need the json file name" << endl;
     }
 
 }
