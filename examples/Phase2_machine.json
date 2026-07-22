@@ -1,0 +1,366 @@
+{
+  "start_state": "q0",
+  "accept_states": ["q_accept"],
+  "reject_states": ["q_reject"],
+  "max_steps": 500,
+  "initial_tape": "S#XXX____G",
+
+  "transitions": [
+
+    {
+      "from": "q0",
+      "read": "S",
+      "to": "q_find_bit",
+      "write": "S",
+      "dir": "R"
+    },
+
+    {
+      "from": "q_find_bit",
+      "read": "A",
+      "to": "q_find_bit",
+      "write": "A",
+      "dir": "R"
+    },
+    {
+      "from": "q_find_bit",
+      "read": "B",
+      "to": "q_find_bit",
+      "write": "B",
+      "dir": "R"
+    },
+    {
+      "from": "q_find_bit",
+      "read": "1",
+      "to": "q_carry1",
+      "write": "A",
+      "dir": "R"
+    },
+    {
+      "from": "q_find_bit",
+      "read": "0",
+      "to": "q_carry0",
+      "write": "B",
+      "dir": "R"
+    },
+    {
+      "from": "q_find_bit",
+      "read": "#",
+      "to": "q_restore",
+      "write": "#",
+      "dir": "L"
+    },
+
+    {
+      "from": "q_carry0",
+      "read": "0",
+      "to": "q_carry0",
+      "write": "0",
+      "dir": "R"
+    },
+    {
+      "from": "q_carry0",
+      "read": "1",
+      "to": "q_carry0",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "from": "q_carry0",
+      "read": "#",
+      "to": "q_sh0",
+      "write": "#",
+      "dir": "R"
+    },
+
+    {
+      "from": "q_carry1",
+      "read": "0",
+      "to": "q_carry1",
+      "write": "0",
+      "dir": "R"
+    },
+    {
+      "from": "q_carry1",
+      "read": "1",
+      "to": "q_carry1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "from": "q_carry1",
+      "read": "#",
+      "to": "q_sh1",
+      "write": "#",
+      "dir": "R"
+    },
+
+    {
+      "from": "q_sh0",
+      "read": "0",
+      "to": "q_sh0",
+      "write": "0",
+      "dir": "R"
+    },
+    {
+      "from": "q_sh0",
+      "read": "1",
+      "to": "q_sh0",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "from": "q_sh0",
+      "read": "X",
+      "to": "q_sh0",
+      "write": "X",
+      "dir": "R"
+    },
+    {
+      "from": "q_sh0",
+      "read": "_",
+      "to": "q_eraseX0",
+      "write": "X",
+      "dir": "L"
+    },
+    {
+      "from": "q_sh0",
+      "read": "G",
+      "to": "q_reject",
+      "write": "G",
+      "dir": "L"
+    },
+
+    {
+      "from": "q_sh1",
+      "read": "0",
+      "to": "q_sh1",
+      "write": "0",
+      "dir": "R"
+    },
+    {
+      "from": "q_sh1",
+      "read": "1",
+      "to": "q_sh1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "from": "q_sh1",
+      "read": "X",
+      "to": "q_sh1",
+      "write": "X",
+      "dir": "R"
+    },
+    {
+      "from": "q_sh1",
+      "read": "_",
+      "to": "q_eraseX1",
+      "write": "X",
+      "dir": "L"
+    },
+    {
+      "from": "q_sh1",
+      "read": "G",
+      "to": "q_reject",
+      "write": "G",
+      "dir": "L"
+    },
+
+    {
+      "from": "q_eraseX0",
+      "read": "X",
+      "to": "q_saveX0",
+      "write": "_",
+      "dir": "R"
+    },
+    {
+      "from": "q_saveX0",
+      "read": "X",
+      "to": "q_sh0",
+      "write": "X",
+      "dir": "L"
+    },
+
+    {
+      "from": "q_eraseX1",
+      "read": "X",
+      "to": "q_saveX1",
+      "write": "_",
+      "dir": "R"
+    },
+    {
+      "from": "q_saveX1",
+      "read": "X",
+      "to": "q_sh1",
+      "write": "X",
+      "dir": "L"
+    },
+
+    {
+      "from": "q_eraseX0",
+      "read": "#",
+      "to": "q_set0",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "from": "q_eraseX0",
+      "read": "0",
+      "to": "q_set0",
+      "write": "0",
+      "dir": "R"
+    },
+    {
+      "from": "q_eraseX0",
+      "read": "1",
+      "to": "q_set0",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "from": "q_set0",
+      "read": "X",
+      "to": "q_Goback",
+      "write": "0",
+      "dir": "L"
+    },
+
+    {
+      "from": "q_eraseX1",
+      "read": "#",
+      "to": "q_set1",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "from": "q_eraseX1",
+      "read": "0",
+      "to": "q_set1",
+      "write": "0",
+      "dir": "R"
+    },
+    {
+      "from": "q_eraseX1",
+      "read": "1",
+      "to": "q_set1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "from": "q_set1",
+      "read": "X",
+      "to": "q_Goback",
+      "write": "1",
+      "dir": "L"
+    },
+
+    {
+      "from": "q_Goback",
+      "read": "0",
+      "to": "q_Goback",
+      "write": "0",
+      "dir": "L"
+    },
+    {
+      "from": "q_Goback",
+      "read": "1",
+      "to": "q_Goback",
+      "write": "1",
+      "dir": "L"
+    },
+    {
+      "from": "q_Goback",
+      "read": "#",
+      "to": "q_Goback",
+      "write": "#",
+      "dir": "L"
+    },
+    {
+      "from": "q_Goback",
+      "read": "A",
+      "to": "q_Goback",
+      "write": "A",
+      "dir": "L"
+    },
+    {
+      "from": "q_Goback",
+      "read": "B",
+      "to": "q_Goback",
+      "write": "B",
+      "dir": "L"
+    },
+    {
+      "from": "q_Goback",
+      "read": "S",
+      "to": "q_find_bit",
+      "write": "S",
+      "dir": "R"
+    },
+
+    {
+      "from": "q_restore",
+      "read": "A",
+      "to": "q_restore",
+      "write": "1",
+      "dir": "L"
+    },
+    {
+      "from": "q_restore",
+      "read": "B",
+      "to": "q_restore",
+      "write": "0",
+      "dir": "L"
+    },
+    {
+      "from": "q_restore",
+      "read": "S",
+      "to": "q_GoToG",
+      "write": "S",
+      "dir": "R"
+    },
+
+    {
+      "from": "q_GoToG",
+      "read": "0",
+      "to": "q_GoToG",
+      "write": "0",
+      "dir": "R"
+    },
+    {
+      "from": "q_GoToG",
+      "read": "1",
+      "to": "q_GoToG",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "from": "q_GoToG",
+      "read": "#",
+      "to": "q_GoToG",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "from": "q_GoToG",
+      "read": "X",
+      "to": "q_GoToG",
+      "write": "X",
+      "dir": "R"
+    },
+    {
+      "from": "q_GoToG",
+      "read": "_",
+      "to": "q_GoToG",
+      "write": "_",
+      "dir": "R"
+    },
+    {
+      "from": "q_GoToG",
+      "read": "G",
+      "to": "q_accept",
+      "write": "G",
+      "dir": "L"
+    }
+  ]
+}
